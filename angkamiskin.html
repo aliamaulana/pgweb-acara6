@@ -61,7 +61,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5>Jumlah Penduduk Menurut Jenis Kelamin</h5>
+                <h5>Jumlah Angka Kemiskinan</h5>
             </div>
             <div class="cad-body">
                 <div id="chart"></div>
@@ -104,69 +104,37 @@
         integrity="sha512-HctQcT5hnI/elQck4950pvd50RuDnjCSGSoHI8CNyQIYVxsUoyJ+gSQIOrll4oM/Z7Kfi7WCLMIbJbiwYHFCpA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script> var options = {
+    <script>  var options = {
             series: [{
-                name: 'Perempuan',
-                data: [26382, 25764, 39355, 33647, 20635, 24138, 24791, 21852, 37452, 35861, 29563, 29831, 26421, 18595, 25605, 19714, 17120, 11711, 14696, 14858]},
-
-            {name: 'Laki-laki',
-                data: [27060, 25929, 39450, 33196, 20718, 23684, 24434, 21297, 36813, 34786, 29109, 29676, 26373, 18575, 25211, 19878, 16773, 11405, 14876, 15009]},
-        ],
+                name: "Jiwa",
+                data: [180700, 177100, 167300, 149800, 154300, 145300, 139000, 130280,	130420,	126760, 124010,	116370,	113830, 119380,	122910,	115140]
+            }],
             chart: {
-                type: 'bar',
-                height: 350
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded',
-                    dataLabels: {
-                        position: 'top',
-                    },
-                },
+                height: 350,
+                type: 'line',
+                zoom: {
+                    enabled: false
+                }
             },
             dataLabels: {
                 enabled: false
             },
             stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
+                curve: 'straight'
+            },
+            title: {
+                text: '',
+                align: 'left'
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                    opacity: 0.5
+                },
             },
             xaxis: {
-                categories: ['Kalijambe', 'Plupuh', 'Masaran', 'Kedawung', 'Sambirejo', 'Gondang', 'Sambungmacan', 'Ngrampal', 'Karangmalang', 'Sragen', 'Sidoharjo', 'Tanon', 'Gemolong', 'Miri', 'Sumberlawang ', 'Mondokan', 'Sukodono', 'Gesi', 'Tangen', 'Jenar'],
-                title: {
-                    text: '(Kecamatan)'
-                }
-            },
-            yaxis: {
-                title: {
-                    text: '(Jiwa)'
-                }
-            },
-            fill: {
-                opacity: 1
-            },
-            tooltip: {
-                y: {
-                    formatter: function (val) {
-                        return "$ " + val + " Jiwa"
-                    }
-                }
-            },
-            dataLabels: {
-                enabled: true,
-                formatter: function (val) {
-                    return val;
-                },
-                offsetY: -20,
-                style: {
-                    fontSize: '12px',
-                    colors: ["#304758"]
-                }
-            },
-
+                categories: ['2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022' ],
+            }
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);

@@ -61,7 +61,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5>Jumlah Penduduk Menurut Jenis Kelamin</h5>
+                <h5>Produksi Tanaman Pangan Tahun 2022 </h5>
             </div>
             <div class="cad-body">
                 <div id="chart"></div>
@@ -105,70 +105,55 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script> var options = {
-            series: [{
-                name: 'Perempuan',
-                data: [26382, 25764, 39355, 33647, 20635, 24138, 24791, 21852, 37452, 35861, 29563, 29831, 26421, 18595, 25605, 19714, 17120, 11711, 14696, 14858]},
-
-            {name: 'Laki-laki',
-                data: [27060, 25929, 39450, 33196, 20718, 23684, 24434, 21297, 36813, 34786, 29109, 29676, 26373, 18575, 25211, 19878, 16773, 11405, 14876, 15009]},
-        ],
+            series: [
+                {
+                    name: "ton",
+                    data: [3923, 5268, 185313, 678575],
+                },
+            ],
             chart: {
                 type: 'bar',
-                height: 350
+                height: 250,
             },
             plotOptions: {
                 bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded',
-                    dataLabels: {
-                        position: 'top',
-                    },
+                    borderRadius: 0,
+                    horizontal: true,
+                    distributed: true,
+                    barHeight: '80%',
+                    isFunnel: true,
                 },
             },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-            },
-            xaxis: {
-                categories: ['Kalijambe', 'Plupuh', 'Masaran', 'Kedawung', 'Sambirejo', 'Gondang', 'Sambungmacan', 'Ngrampal', 'Karangmalang', 'Sragen', 'Sidoharjo', 'Tanon', 'Gemolong', 'Miri', 'Sumberlawang ', 'Mondokan', 'Sukodono', 'Gesi', 'Tangen', 'Jenar'],
-                title: {
-                    text: '(Kecamatan)'
-                }
-            },
-            yaxis: {
-                title: {
-                    text: '(Jiwa)'
-                }
-            },
-            fill: {
-                opacity: 1
-            },
-            tooltip: {
-                y: {
-                    formatter: function (val) {
-                        return "$ " + val + " Jiwa"
-                    }
-                }
-            },
+            colors: [
+                '#4BC3E6',
+                '#B57BED',
+                '#D863B1',
+                '#8D95EB',
+                
+                
+                
+                
+            ],
             dataLabels: {
                 enabled: true,
-                formatter: function (val) {
-                    return val;
+                formatter: function (val, opt) {
+                    return opt.w.globals.labels[opt.dataPointIndex]
                 },
-                offsetY: -20,
-                style: {
-                    fontSize: '12px',
-                    colors: ["#304758"]
-                }
+                dropShadow: {
+                    enabled: true,
+                },
             },
-
+            title: {
+                text: 'Piramida Produksi Pangan',
+                align: 'middle',
+            },
+            xaxis: {
+                categories: ['Kedelai', 'Kacang Tanah', 'Jagung','Padi'],
+            },
+            legend: {
+                show: false,
+            },
         };
-
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();</script>
      
